@@ -1,0 +1,148 @@
+body {
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+}
+
+#cells {
+  display: grid;
+  width: 600px;
+  height: 600px;
+  grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+  gap: 10px;
+  background-color: #ffffff;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap:20px;
+  height: 100vh; 
+  position: relative;
+}
+
+.info {
+  display: flex;
+  flex-direction: column; 
+  align-items: flex-start;
+  font-size: 35px;
+  padding-bottom: 350px;
+}
+
+.info *{
+  padding:10px;
+  margin: 0;
+}
+
+  .info h3 {
+    width: 100%;
+    text-align: left;
+  }
+
+#cells {
+  background-color: #f0f0f0;
+}
+
+
+.cell {
+  background: #6c757d;
+  border-radius: 8px;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.cell:hover {
+  transform: scale(1.035);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+ 
+.cell img {
+  display:flex;
+  place-items:center;
+}
+
+
+
+.x, .o {
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.x {
+  background-image: url("https://png.pngtree.com/png-vector/20190214/ourmid/pngtree-vector-plus-icon-png-image_515260.jpg");
+}
+
+.o {
+  background-image: url("https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-circle-outline-512.png");
+}
+
+.win-Player {
+  font-size: 40px;
+  text-align: center;
+  width: 100%;
+  padding: 10px;
+}
+
+
+#current-player-text {
+  width: 415px;
+  text-align: center;
+  min-height: 50px;
+  font-weight: bold;
+  padding: 0;
+  margin: 0;
+}
+
+.modal-games {
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+  .modal-games.active {
+    visibility: visible;
+    opacity: 1;
+  }
+
+
+
+
+.modal-games button {
+   padding: 15px 25px;
+   font-size: 20px;
+   margin: 10px;
+   cursor: pointer;
+}
+
+.board {
+  position: relative;
+}
+
+.winning-line {
+  position: absolute;
+  height: 4px;
+  background-color: red;
+  transform-origin: left;
+  animation: draw-line 0.5s ease-out forwards;
+}
+
+@keyframes draw-line {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}
